@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import InfiniteScroll from 'react-infinite-scroller';
 import { animated, useTransition } from 'react-spring';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { PaletteVisual } from '../palette_visual/palette_visual';
 import { LoadingSpinner } from '../../../../commons/loading_spinner/loading_spinner';
@@ -28,7 +28,7 @@ const PalettesListComponent = ({ value: currentPalette, onChange, classes: recei
     const displayedPalettes = useMemo(() => palettes.slice(0, itemsToShow), [itemsToShow]);
 
     const onSelectChanged = useCallback(
-        value => () => {
+        (value) => () => {
             const [primary, secondary, tertiary] = value;
             return onChange({
                 primary: buildShadedPalette(primary),
@@ -45,7 +45,7 @@ const PalettesListComponent = ({ value: currentPalette, onChange, classes: recei
 
     const transitions = useTransition(
         displayedPalettes,
-        item => `palette_${item.join('_')}`,
+        (item) => `palette_${item.join('_')}`,
         PALETTES_LIST_TRANSITIONS_SPRING_PROPS
     );
 

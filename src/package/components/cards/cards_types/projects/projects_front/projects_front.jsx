@@ -4,7 +4,7 @@ import { Twemoji } from 'react-emoji-render';
 import { FormattedMessage } from 'react-intl';
 import { createUseStyles } from 'react-jss';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { ProfileCardActions } from '../../../../commons/profile_card/profile_card_actions/profile_card_actions';
 import { ProfileCardButton } from '../../../../commons/profile_card/profile_card_button/profile_card_button';
@@ -86,7 +86,7 @@ const Content = ({ hasProject, projectTitle, handleAddButtonClick, classes }) =>
                     id="Projects.front.title"
                     defaultMessage="My <emoji>♥️</emoji> project : "
                     values={{
-                        emoji: value => <Twemoji svg text={value} />
+                        emoji: (value) => <Twemoji svg text={value} />
                     }}
                 />
                 {projectTitle}

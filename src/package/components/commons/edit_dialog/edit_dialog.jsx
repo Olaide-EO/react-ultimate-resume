@@ -6,7 +6,7 @@ import { createUseStyles, useTheme } from 'react-jss';
 import { Formik, useFormikContext } from 'formik';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { Button, Tooltip } from '@wld/ui';
+import { Button, Tooltip } from '@welovedevs/ui';
 
 import { Dialog, DialogActions, DialogContent } from '@material-ui/core';
 
@@ -44,7 +44,7 @@ const EditDialogComponent = ({
             <Formik
                 validateOnChange={false}
                 initialValues={data}
-                onSubmit={newValues => onEdit(newValues)}
+                onSubmit={(newValues) => onEdit(newValues)}
                 validationSchema={validationSchema}
             >
                 <TitleContent
@@ -110,13 +110,13 @@ const Content = ({
     isEditing
 }) => {
     const handleValueChange = useCallback(
-        name => value => {
+        (name) => (value) => {
             console.log(`[Edit Dialog] Setting field ${name} to value.`, { value });
             return setFieldValue(name, value);
         },
         [setFieldValue]
     );
-    const toggleValue = useCallback(name => () => setFieldValue(name, !values[name]), [setFieldValue, values]);
+    const toggleValue = useCallback((name) => () => setFieldValue(name, !values[name]), [setFieldValue, values]);
 
     return (
         <>

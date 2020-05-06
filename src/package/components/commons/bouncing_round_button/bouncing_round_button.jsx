@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { createUseStyles } from 'react-jss';
 import { animated, useSpring } from 'react-spring';
 
-import { Tooltip } from '@wld/ui';
+import { Tooltip } from '@welovedevs/ui';
 
 import { ReactComponent as EditIcon } from '../../../assets/icons/edit.svg';
 
@@ -37,7 +37,7 @@ const BouncingRoundButtonComponent = ({
                 onMouseUp={handleMouseUp}
                 onMouseLeave={handleMouseUp}
                 style={{
-                    transform: springProps.scale.to(value => `scale3d(${value}, ${value}, ${value})`)
+                    transform: springProps.scale.to((value) => `scale3d(${value}, ${value}, ${value})`)
                 }}
             >
                 <Icon className={cn(classes.icon, classes.iconContainer)} />

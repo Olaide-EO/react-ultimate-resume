@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { createUseStyles } from 'react-jss';
 
-import { Button, Card, PopperCardActions, TextField, Typography } from '@wld/ui';
+import { Button, Card, PopperCardActions, TextField, Typography } from '@welovedevs/ui';
 
 import { BouncingRoundButton } from '../../../../../../commons/bouncing_round_button/bouncing_round_button';
 
@@ -24,7 +24,7 @@ const GifCardComponent = ({
 
     const [input, setInput] = useState(name);
 
-    const handleTextFieldChange = useCallback(event => {
+    const handleTextFieldChange = useCallback((event) => {
         const {
             target: { value }
         } = event;

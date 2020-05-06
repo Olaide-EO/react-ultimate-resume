@@ -3,7 +3,7 @@ import React, { memo, useMemo, useRef } from 'react';
 import { createUseStyles } from 'react-jss';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { List, ListItem, PopperCard, Typography } from '@wld/ui';
+import { List, ListItem, PopperCard, Typography } from '@welovedevs/ui';
 
 import { ProfileCardSection } from '../../../../commons/profile_card/profile_card_section/profile_card_section';
 import { ProfileCardSectionTitle } from '../../../../commons/profile_card/profile_card_section_title/profile_card_section_title';
@@ -59,7 +59,7 @@ const DreamJobBackComponent = ({ data }) => {
             )}
             {existsAndNotEmpty(perks) &&
                 typeof perks === 'object' &&
-                Object.values(perks).some(value => existsAndNotEmpty(value)) && (
+                Object.values(perks).some((value) => existsAndNotEmpty(value)) && (
                     <ProfileCardSection>
                         <ProfileCardSectionTitle>
                             <FormattedMessage
@@ -92,9 +92,7 @@ const DreamJobBackComponent = ({ data }) => {
 const DreamJobLocations = ({ remoteFrequency, places, classes }) => {
     const { formatMessage } = useIntl();
     if (remoteFrequency === REMOTE_FREQUENCY.FULL_TIME) {
-        return (
-            <FormattedMessage id="Dreamjob.Back.Location.RemoteOnly" defaultMessage="I only want to work remotely" />
-        );
+        return <FormattedMessage id="Dreamjob.Back.Location.RemoteOnly" defaultMessage="I want to work remotely" />;
     }
 
     return (
@@ -155,7 +153,7 @@ const DreamJobPlaces = ({ places = [], classes }) => {
             >
                 <List>
                     {remainingPlaces
-                        .filter(item => item)
+                        .filter((item) => item)
                         .map(({ name }, index) => (
                             <ListItem key={`place_popper_${index}`}>
                                 <Typography>{name}</Typography>

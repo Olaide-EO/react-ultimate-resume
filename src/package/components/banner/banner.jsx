@@ -5,7 +5,7 @@ import { createUseStyles } from 'react-jss';
 import { FormattedMessage } from 'react-intl';
 import { animated, config, useTransition } from 'react-spring';
 
-import { Typography } from '@wld/ui';
+import { Typography } from '@welovedevs/ui';
 
 import { UserInformations } from './user_actions_row/user_informations/user_informations';
 import { SocialActions } from './user_actions_row/social_actions/social_actions';
@@ -31,7 +31,7 @@ const BannerComponent = ({ customizationOptions, onCustomizationChanged }) => {
     const [globalReceivedBannerClasses = {}] = useReceivedGlobalClasses('banner');
     const [isEditing] = useIsEditing();
 
-    const transitions = useTransition(customizationOptions?.imageHeader || null, item => `${item?.alt}_${item.url}`, {
+    const transitions = useTransition(customizationOptions?.imageHeader || null, (item) => `${item?.alt}_${item.url}`, {
         ...OPACITY_TRANSITIONS,
         unique: true,
         config: config.molasses

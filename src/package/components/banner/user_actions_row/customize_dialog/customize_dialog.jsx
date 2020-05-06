@@ -5,7 +5,7 @@ import { FormattedMessage } from 'react-intl';
 import set from 'lodash/set';
 import cloneDeep from 'lodash/cloneDeep';
 
-import { Button } from '@wld/ui';
+import { Button } from '@welovedevs/ui';
 
 import { Dialog, DialogActions, DialogContent, useMediaQuery } from '@material-ui/core';
 
@@ -51,7 +51,7 @@ const CustomizeDialogComponent = ({ open, onClose, customizationOptions }) => {
     }, [value]);
 
     const onPaletteChanged = useCallback(
-        palette => {
+        (palette) => {
             const newCustomization = cloneDeep(value || {});
             set(newCustomization, 'theme.palette', palette);
             setValue(newCustomization);
@@ -64,7 +64,7 @@ const CustomizeDialogComponent = ({ open, onClose, customizationOptions }) => {
     );
 
     const onCardOrdered = useCallback(
-        cardsOrder => {
+        (cardsOrder) => {
             const newCustomization = cloneDeep(value || {});
             newCustomization.cardsOrder = cardsOrder;
             setValue(newCustomization);

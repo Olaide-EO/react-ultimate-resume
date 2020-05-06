@@ -3,9 +3,10 @@ import { FormattedMessage } from 'react-intl';
 import { createUseStyles } from 'react-jss';
 import isArray from 'lodash/isArray';
 import mergeWith from 'lodash/mergeWith';
+import omit from 'lodash/omit';
 import cloneDeep from 'lodash/cloneDeep';
 import download from 'downloadjs';
-import { Button } from '@wld/ui';
+import { Button } from '@welovedevs/ui';
 
 import JsonStub from './data/json_stub.json';
 import DeveloperProfile from './package';
@@ -22,15 +23,16 @@ const mergeFunction = (objValue, srcValue, key) => {
     return undefined;
 };
 
-const mode = 'edit';
+const mode = process.env.REACT_APP_MODE || 'edit';
+
 function App() {
     const classes = useStyles();
-    const [data, setData] = useState(JsonStub);
+    const [data, setData] = useState(omit(JsonStub, 'resumeCustomization'));
 
-    const onEdit = useCallback(newData => setData(mergeWith(cloneDeep(data), newData, mergeFunction)), [
+    const onEdit = useCallback((newData) => setData(mergeWith(cloneDeep(data), newData, mergeFunction)), [
         JSON.stringify(data)
     ]);
-    const [customization, setCustomization] = useState(data.resumeCustomization || {});
+    const [customization, setCustomization] = useState(JsonStub.resumeCustomization || {});
 
     const onCustomizationChanged = useCallback(setCustomization, [data]);
 
